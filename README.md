@@ -2,7 +2,7 @@
 
 **Note: This is for project submission for the Udacity Deep Reinforcement Learning Nanodegree program.**
 
-##The Environment
+## The Environment
 
 For this project, you will work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
 
@@ -12,7 +12,7 @@ In this environment, a double-jointed arm can move to target locations. A reward
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
-##Solving the Environment
+## Solving the Environment
 
 **Option 1: Solve the First Version**
 
@@ -39,7 +39,7 @@ Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reache
 
 Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86.zip)
 
-Windows (64-bit): [click here(https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86_64.zip)
+Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Windows_x86_64.zip)
 
 **Version 2: Twenty (20) Agents**
 
