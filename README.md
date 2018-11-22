@@ -55,3 +55,19 @@ Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/
 _(For Windows users)_ Check out [this link](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64) if you need help with determining if your computer is running a 32-bit version or 64-bit version of the Windows operating system.
 
 _(For AWS)_ If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/one_agent/Reacher_Linux_NoVis.zip) (version 1) or [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux_NoVis.zip) (version 2) to obtain the "headless" version of the environment. You will not be able to watch the agent without enabling a virtual screen, but you will be able to train the agent. _(To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the Linux operating system above.)_
+
+
+## Future improvement tips
+
+Even Udacity's benchmark solution encountered case when due to rapid updates to the agent and critic the system trains fast but it is unstable and crashes later on. Sometimes after reaching the high performance and sometimes just bearly mediocre. One case that I had experienced was when I was training the system on a single agent, and an average score for the last 100 episodes reached 29.45 (30 was required to declare that the agent resolved the environment), and after that, it went unstable start to perform poorly.  It there was case of a code laughing at your face this was it. 
+
+Udacity provides the suggestion on how to combat the given situation. They suggest using gradient clipping when training the critic network. They even provide the snippet of the code. 
+
+```python
+self.critic_optimizer.zero_grad()
+critic_loss.backward()
+torch.nn.utils.clip_grad_norm(self.critic_local.parameters(), 1)
+self.critic_optimizer.step()
+```
+
+Another suggestion is to save based on the maximum average value for the last 10 instead of 100. Use the different name in order to distinguish which networks are which ones that are saved based on the last 100 episode performance or the last 10 episode performance. In this way you even if it goes unstable you will still have the one that performed best in a reasonable amount of episodes. 
